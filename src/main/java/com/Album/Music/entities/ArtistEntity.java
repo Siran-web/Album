@@ -21,6 +21,6 @@ public class ArtistEntity {
 
     private String nationality;
 
-    @OneToMany(mappedBy = "artist")
-    private List<MusicEntity> musicEntities;
+//    @OneToMany(mappedBy = "artist")
+//    private List<MusicEntity> musicEntities;
 }

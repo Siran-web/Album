@@ -27,8 +27,8 @@ public class MusicEntity {
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-    @OneToMany
-    @JoinColumn
-    private ArtistEntity artistEntity;
+//    @OneToMany
+//    @JoinColumn
+//    private ArtistEntity artistEntity;
 
 }
