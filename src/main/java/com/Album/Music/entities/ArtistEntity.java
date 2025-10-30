@@ -16,11 +16,11 @@ public class ArtistEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long artistId;
 
-    @Column(length = 20 , nullable = false)
+    @Column(length = 20 , nullable = false , unique = true)
     private String artistName;
 
     private String nationality;
 
-    @OneToMany(mappedBy = "artist")
-    private List<MusicEntity> musicEntities;
+//    @OneToMany(mappedBy = "artist")
+//    private List<MusicEntity> musicEntities;
 }
