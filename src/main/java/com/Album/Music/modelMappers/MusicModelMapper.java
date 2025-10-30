@@ -5,7 +5,7 @@ import com.Album.Music.entities.MusicEntity;
 
 public class MusicModelMapper {
 
-    public MusicEntity toEntity(MusicDTO dto){
+    public static MusicEntity toEntity(MusicDTO dto){
         MusicEntity entity = new MusicEntity();
 
         entity.setMusicId(dto.getMusicId());
@@ -15,7 +15,7 @@ public class MusicModelMapper {
         return entity;
     }
 
-    public MusicDTO toDTO(MusicEntity entity){
+    public static MusicDTO toDTO(MusicEntity entity){
         MusicDTO dto = new MusicDTO();
 
         dto.setMusicId(entity.getMusicId());

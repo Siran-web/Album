@@ -18,7 +18,7 @@ public class MusicEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long musicId;
 
-    @Column(length = 100 , nullable = false)
+    @Column(length = 30 , nullable = false , unique = true)
     private String title;
 
     @PastOrPresent
