@@ -2,6 +2,7 @@ package com.Album.Music.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,6 +10,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
 public class UserEntity implements UserDetails{
 
     @Id
@@ -37,4 +43,5 @@ public class UserEntity implements UserDetails{
     public String getUsername() {
         return this.email;
     }
+
 }
