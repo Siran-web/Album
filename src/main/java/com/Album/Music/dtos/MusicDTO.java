@@ -1,6 +1,6 @@
 package com.Album.Music.dtos;
 
-import com.Album.Music.entities.types.Genre;
+import com.Album.Music.types.Genre;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -15,5 +15,5 @@ public class MusicDTO {
     private Genre genre;
     private LocalDate releaseDate;
 
-    private ArtistDTO artist;
+    private Long artistId;
 }

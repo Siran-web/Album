@@ -1,9 +1,9 @@
-package com.Album.Music.entities.types;
+package com.Album.Music.types;
 
 public enum Genre {
     Sad,
     Romantic,
     Motivating,
     Rap,
-    Jazz;
+    Jazz,
 }

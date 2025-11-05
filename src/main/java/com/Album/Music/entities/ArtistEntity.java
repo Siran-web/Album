@@ -1,15 +1,18 @@
 package com.Album.Music.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "artist")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "artist_table")
 public class ArtistEntity {
 
     @Id
@@ -21,6 +24,6 @@ public class ArtistEntity {
 
     private String nationality;
 
-//    @OneToMany(mappedBy = "artist")
-//    private List<MusicEntity> musicEntities;
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MusicEntity> musicEntities = new ArrayList<>();
 }

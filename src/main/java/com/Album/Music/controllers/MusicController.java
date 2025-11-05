@@ -1,9 +1,9 @@
 package com.Album.Music.controllers;
 
 import com.Album.Music.dtos.MusicDTO;
+import com.Album.Music.types.Genre;
 import com.Album.Music.services.MusicService;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +33,18 @@ public class MusicController {
     public ResponseEntity<MusicDTO> getMusicById(@PathVariable Long musicId) {
         MusicDTO musicDTO = musicService.getMusicById(musicId);
         return new ResponseEntity<>(musicDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/artist/{artistId}")
+    public ResponseEntity<List<MusicDTO>> getMusicByArtistId(@PathVariable Long artistId) {
+        List<MusicDTO> musicDTOs = musicService.getMusicByArtistId(artistId);
+        return new ResponseEntity<>(musicDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/genre/ {genre}")
+    public ResponseEntity<List<MusicDTO>> getMusicByGenre(@PathVariable Genre genre) {
+        List<MusicDTO> musicDTOS = musicService.getMusicByGenre(genre);
+        return new ResponseEntity<>(musicDTOS, HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/{musicId}")
