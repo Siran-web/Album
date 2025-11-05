@@ -35,7 +35,7 @@ public class ArtistService {
     public void isExist(Long artistId) {
         boolean exist = artistRepository.existsById(artistId);
         if (!exist) {
-            System.out.println("Artist Not Found");
+            System.out.println("Artist Not Found with ID: " + artistId);
         }
     }
 
@@ -47,10 +47,19 @@ public class ArtistService {
         return ArtistModelMapper.toDTO(artist);
     }
 
-    public Boolean deleteArtist(Long artistId) {
+    public ArtistDTO getArtistByName(String artistName) {
+        boolean exist = artistRepository.existsByArtistName(artistName);
+        if (!exist) {
+            System.out.println("Artist Not Found with name " + artistName);
+        }
+        ArtistEntity artist = artistRepository.findByArtistName(artistName);
+        assert(artist != null);
+        return ArtistModelMapper.toDTO(artist);
+    }
+
+    public void deleteArtist(Long artistId) {
         isExist(artistId);
         artistRepository.deleteById(artistId);
-        return true;
     }
 
 }

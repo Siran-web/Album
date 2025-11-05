@@ -13,5 +13,5 @@ public class ArtistDTO {
     private String artistName;
     private String nationality;
 
-    private List<MusicDTO> musicList;
+    private List<Long> musicIds;
 }
