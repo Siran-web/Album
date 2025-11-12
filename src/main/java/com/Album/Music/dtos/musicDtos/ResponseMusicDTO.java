@@ -1,4 +1,4 @@
-package com.Album.Music.dtos;
+package com.Album.Music.dtos.musicDtos;
 
 import com.Album.Music.types.Genre;
 import lombok.*;
@@ -6,14 +6,16 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
-@Getter
-@Setter
-public class MusicDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ResponseMusicDTO {
 
-    private Long musicId;
+    private Long id;
     private String title;
     private Genre genre;
     private LocalDate releaseDate;
 
     private Long artistId;
+
 }

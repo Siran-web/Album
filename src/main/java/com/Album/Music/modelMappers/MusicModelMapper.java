@@ -1,6 +1,6 @@
 package com.Album.Music.modelMappers;
 
-import com.Album.Music.dtos.MusicDTO;
+import com.Album.Music.dtos.musicDtos.ResponseMusicDTO;
 import com.Album.Music.entities.ArtistEntity;
 import com.Album.Music.entities.MusicEntity;
 import com.Album.Music.repositories.ArtistRepository;
@@ -17,7 +17,7 @@ public class MusicModelMapper {
         this.repository = repository;
     }
 
-    public MusicEntity toEntity(MusicDTO dto){
+    public MusicEntity toEntity(ResponseMusicDTO dto){
         MusicEntity entity = new MusicEntity();
 
         Optional<ArtistEntity> artist = repository.findById(dto.getArtistId());
@@ -31,8 +31,8 @@ public class MusicModelMapper {
         return entity;
     }
 
-    public static MusicDTO toDTO(MusicEntity entity){
-        MusicDTO dto = new MusicDTO();
+    public static ResponseMusicDTO toDTO(MusicEntity entity){
+        ResponseMusicDTO dto = new ResponseMusicDTO();
 
         dto.setMusicId(entity.getMusicId());
         dto.setTitle(entity.getTitle());

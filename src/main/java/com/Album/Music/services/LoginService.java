@@ -1,6 +1,6 @@
 package com.Album.Music.services;
 
-import com.Album.Music.dtos.LoginDto;
+import com.Album.Music.dtos.authenticationDtos.LoginDto;
 import com.Album.Music.entities.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

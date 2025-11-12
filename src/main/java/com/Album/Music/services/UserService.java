@@ -1,17 +1,12 @@
 package com.Album.Music.services;
 
-import com.Album.Music.dtos.LoginDto;
-import com.Album.Music.dtos.SignUpDto;
-import com.Album.Music.dtos.UserDto;
+import com.Album.Music.dtos.authenticationDtos.SignUpDto;
+import com.Album.Music.dtos.authenticationDtos.UserDto;
 import com.Album.Music.entities.UserEntity;
 import com.Album.Music.modelMappers.UserModelMapper;
 import com.Album.Music.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

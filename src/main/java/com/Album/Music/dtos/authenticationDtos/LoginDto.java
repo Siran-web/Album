@@ -1,4 +1,4 @@
-package com.Album.Music.dtos;
+package com.Album.Music.dtos.authenticationDtos;
 
 import lombok.Data;
 import lombok.Getter;

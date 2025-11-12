@@ -1,13 +1,13 @@
 package com.Album.Music.modelMappers;
 
-import com.Album.Music.dtos.ArtistDTO;
-import com.Album.Music.dtos.MusicDTO;
+import com.Album.Music.dtos.artistDtos.ResponseArtistDTO;
+import com.Album.Music.dtos.musicDtos.ResponseMusicDTO;
 import com.Album.Music.entities.ArtistEntity;
 import com.Album.Music.entities.MusicEntity;
 
 public class ArtistModelMapper {
 
-    public static ArtistEntity toEntity(ArtistDTO dto){
+    public static ArtistEntity toEntity(ResponseArtistDTO dto){
         ArtistEntity entity = ArtistEntity.builder().build();
 
         entity.setArtistId(dto.getArtistId());
@@ -17,8 +17,8 @@ public class ArtistModelMapper {
         return entity;
     }
 
-    public static ArtistDTO toDTO(ArtistEntity entity){
-        ArtistDTO dto = new ArtistDTO();
+    public static ResponseArtistDTO toDTO(ArtistEntity entity){
+        ResponseArtistDTO dto = new ResponseArtistDTO();
 
         dto.setArtistId(entity.getArtistId());
         dto.setArtistName(entity.getArtistName());
@@ -26,8 +26,8 @@ public class ArtistModelMapper {
 
         if(entity.getMusicEntities() != null){
             for (MusicEntity musicEntity : entity.getMusicEntities()) {
-                MusicDTO musicDTO = new MusicDTO();
-                musicDTO.setMusicId(musicEntity.getMusicId());
+                ResponseMusicDTO responseMusicDTO = new ResponseMusicDTO();
+                responseMusicDTO.setMusicId(musicEntity.getMusicId());
             }
         }
 

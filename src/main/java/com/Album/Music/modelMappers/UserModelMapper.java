@@ -1,7 +1,7 @@
 package com.Album.Music.modelMappers;
 
-import com.Album.Music.dtos.SignUpDto;
-import com.Album.Music.dtos.UserDto;
+import com.Album.Music.dtos.authenticationDtos.SignUpDto;
+import com.Album.Music.dtos.authenticationDtos.UserDto;
 import com.Album.Music.entities.UserEntity;
 import org.springframework.stereotype.Component;
 
