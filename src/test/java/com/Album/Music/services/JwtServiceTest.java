@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class JwtServiceTest {
 
     @Autowired
-    private JwtService jwtService;
+    private final JwtService jwtService = new JwtService();
 
     @Test
     public void testJwtTokenGeneration(){

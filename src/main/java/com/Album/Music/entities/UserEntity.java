@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -21,7 +22,7 @@ public class UserEntity implements UserDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private String username;
+    private String username;
 
     @Column(unique = true , nullable = false)
 //    @Email
