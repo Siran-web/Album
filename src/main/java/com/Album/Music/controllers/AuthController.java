@@ -1,8 +1,8 @@
 package com.Album.Music.controllers;
 
-import com.Album.Music.dtos.LoginDto;
-import com.Album.Music.dtos.SignUpDto;
-import com.Album.Music.dtos.UserDto;
+import com.Album.Music.dtos.authenticationDtos.LoginDto;
+import com.Album.Music.dtos.authenticationDtos.SignUpDto;
+import com.Album.Music.dtos.authenticationDtos.UserDto;
 import com.Album.Music.services.LoginService;
 import com.Album.Music.services.UserService;
 import lombok.RequiredArgsConstructor;

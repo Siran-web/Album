@@ -26,4 +26,7 @@ public class ArtistEntity {
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MusicEntity> musicEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "artist" , cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<AlbumEntity> albumEntities = new ArrayList<>();
 }

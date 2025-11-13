@@ -37,4 +37,7 @@ public class MusicEntity {
     @JoinColumn(name = "artist_id", nullable = false)
     private ArtistEntity artist;
 
+    @ManyToOne
+    @JoinColumn(name = "album_id" , nullable = false)
+    private AlbumEntity album;
 }

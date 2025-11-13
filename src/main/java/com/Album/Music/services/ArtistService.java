@@ -1,6 +1,6 @@
 package com.Album.Music.services;
 
-import com.Album.Music.dtos.ArtistDTO;
+import com.Album.Music.dtos.artistDtos.ResponseArtistDTO;
 import com.Album.Music.entities.ArtistEntity;
 import com.Album.Music.modelMappers.ArtistModelMapper;
 import com.Album.Music.repositories.ArtistRepository;
@@ -16,20 +16,20 @@ public class ArtistService {
 
     private final ArtistRepository artistRepository;
 
-    public ArtistDTO createArtist(ArtistDTO dto) {
+    public ResponseArtistDTO createArtist(ResponseArtistDTO dto) {
         ArtistEntity artist = ArtistModelMapper.toEntity(dto);
         ArtistEntity savedArtist = artistRepository.save(artist);
         return ArtistModelMapper.toDTO(savedArtist);
     }
 
-    public List<ArtistDTO> getArtists() {
+    public List<ResponseArtistDTO> getArtists() {
         List<ArtistEntity> artists = artistRepository.findAll();
-        List<ArtistDTO> artistDTOS = new ArrayList<>();
+        List<ResponseArtistDTO> responseArtistDTOS = new ArrayList<>();
         for (ArtistEntity artist : artists) {
-            ArtistDTO dto = ArtistModelMapper.toDTO(artist);
-            artistDTOS.add(dto);
+            ResponseArtistDTO dto = ArtistModelMapper.toDTO(artist);
+            responseArtistDTOS.add(dto);
         }
-        return artistDTOS;
+        return responseArtistDTOS;
     }
 
     public void isExist(Long artistId) {
@@ -39,7 +39,7 @@ public class ArtistService {
         }
     }
 
-    public ArtistDTO getArtistById(Long artistId) {
+    public ResponseArtistDTO getArtistById(Long artistId) {
         isExist(artistId);
 
         ArtistEntity artist = artistRepository.findById(artistId).orElse(null);
@@ -47,7 +47,7 @@ public class ArtistService {
         return ArtistModelMapper.toDTO(artist);
     }
 
-    public ArtistDTO getArtistByName(String artistName) {
+    public ResponseArtistDTO getArtistByName(String artistName) {
         boolean exist = artistRepository.existsByArtistName(artistName);
         if (!exist) {
             System.out.println("Artist Not Found with name " + artistName);

@@ -1,8 +1,6 @@
 package com.Album.Music.services;
 
-import com.Album.Music.advice.GlobalExceptionHandler;
-import com.Album.Music.dtos.MusicDTO;
-import com.Album.Music.entities.ArtistEntity;
+import com.Album.Music.dtos.musicDtos.ResponseMusicDTO;
 import com.Album.Music.entities.MusicEntity;
 import com.Album.Music.exceptions.ResourceNotFoundException;
 import com.Album.Music.types.Genre;
@@ -26,30 +24,30 @@ public class MusicService {
     private final MusicRepository musicRepository;
     private final ArtistRepository artistRepository;
 
-    public MusicDTO createMusic(MusicDTO inputMusic){
+    public ResponseMusicDTO createMusic(ResponseMusicDTO inputMusic){
         MusicEntity music = mapper.toEntity(inputMusic);
         MusicEntity savedMusic = musicRepository.save(music);
         return MusicModelMapper.toDTO(savedMusic);
     }
 
-    public List<MusicDTO> getAllMusic(){
+    public List<ResponseMusicDTO> getAllMusic(){
         List<MusicEntity> musicEntities = musicRepository.findAll();
-        List<MusicDTO> musicDTOs = new ArrayList<>();
+        List<ResponseMusicDTO> responseMusicDTOS = new ArrayList<>();
         for (MusicEntity musicEntity : musicEntities) {
-            MusicDTO musicDTO = MusicModelMapper.toDTO(musicEntity);
-            musicDTOs.add(musicDTO);
+            ResponseMusicDTO responseMusicDTO = MusicModelMapper.toDTO(musicEntity);
+            responseMusicDTOS.add(responseMusicDTO);
         }
-        return musicDTOs;
+        return responseMusicDTOS;
     }
 
-    public List<MusicDTO> getMusicByArtistId(Long artistId){
+    public List<ResponseMusicDTO> getMusicByArtistId(Long artistId){
         List<MusicEntity> musicEntities = artistRepository.findByArtistId(artistId);
-        List<MusicDTO> musicDTOs = new ArrayList<>();
+        List<ResponseMusicDTO> responseMusicDTOS = new ArrayList<>();
         for (MusicEntity musicEntity : musicEntities) {
-            MusicDTO musicDTO = MusicModelMapper.toDTO(musicEntity);
-            musicDTOs.add(musicDTO);
+            ResponseMusicDTO responseMusicDTO = MusicModelMapper.toDTO(musicEntity);
+            responseMusicDTOS.add(responseMusicDTO);
         }
-        return musicDTOs;
+        return responseMusicDTOS;
     }
 
     public void isExist(Long musicId){
@@ -59,7 +57,7 @@ public class MusicService {
         }
     }
 
-    public MusicDTO getMusicById(Long musicId){
+    public ResponseMusicDTO getMusicById(Long musicId){
         isExist(musicId);
 
         MusicEntity musicEntity = musicRepository.findById(musicId).orElse(null);
@@ -72,14 +70,14 @@ public class MusicService {
         musicRepository.deleteById(musicId);
     }
 
-    public List<MusicDTO> getMusicByGenre(Genre genre){
+    public List<ResponseMusicDTO> getMusicByGenre(Genre genre){
         List<MusicEntity> musicEntities = musicRepository.findByGenre(genre);
-        List<MusicDTO> musicDTOs = new ArrayList<>();
+        List<ResponseMusicDTO> responseMusicDTOS = new ArrayList<>();
         for (MusicEntity musicEntity : musicEntities){
-            MusicDTO musicDTO = MusicModelMapper.toDTO(musicEntity);
-            musicDTOs.add(musicDTO);
+            ResponseMusicDTO responseMusicDTO = MusicModelMapper.toDTO(musicEntity);
+            responseMusicDTOS.add(responseMusicDTO);
         }
-        return musicDTOs;
+        return responseMusicDTOS;
     }
 
 }

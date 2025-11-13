@@ -1,6 +1,6 @@
 package com.Album.Music.controllers;
 
-import com.Album.Music.dtos.ArtistDTO;
+import com.Album.Music.dtos.artistDtos.ResponseArtistDTO;
 import com.Album.Music.services.ArtistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,20 +16,20 @@ public class ArtistController {
     private final ArtistService artistService;
 
     @PostMapping
-    private ResponseEntity<ArtistDTO> createArtist(@RequestBody ArtistDTO artistDTO){
-        ArtistDTO artist = artistService.createArtist(artistDTO);
+    private ResponseEntity<ResponseArtistDTO> createArtist(@RequestBody ResponseArtistDTO responseArtistDTO){
+        ResponseArtistDTO artist = artistService.createArtist(responseArtistDTO);
         return ResponseEntity.ok(artist);
     }
 
     @GetMapping
-    private ResponseEntity<List<ArtistDTO>> getArtist(){
-        List<ArtistDTO> artistDTO = artistService.getArtists();
-        return ResponseEntity.ok(artistDTO);
+    private ResponseEntity<List<ResponseArtistDTO>> getArtist(){
+        List<ResponseArtistDTO> responseArtistDTO = artistService.getArtists();
+        return ResponseEntity.ok(responseArtistDTO);
     }
 
     @GetMapping(path = "/{artistId}")
-    private ResponseEntity<ArtistDTO> getArtistById(@PathVariable Long artistId){
-        ArtistDTO artist = artistService.getArtistById(artistId);
+    private ResponseEntity<ResponseArtistDTO> getArtistById(@PathVariable Long artistId){
+        ResponseArtistDTO artist = artistService.getArtistById(artistId);
         return ResponseEntity.ok(artist);
     }
 
